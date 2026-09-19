@@ -81,6 +81,7 @@ typedef struct {
 
 typedef struct {
 	char name[256];
+	char *basename;
 	Window win;
 	int tabx;
 	Bool urgent;
@@ -107,6 +108,7 @@ static void focusonce(const Arg *arg);
 static void focusurgent(const Arg *arg);
 static void fullscreen(const Arg *arg);
 static char *getatom(int a);
+static char *getbasename(const char *name);
 static int getclient(Window w);
 static XftColor getcolor(const char *colstr);
 static int getfirsttab(void);
@@ -156,7 +158,7 @@ static int bh, obh, wx, wy, ww, wh, vbh;
 static unsigned int numlockmask;
 static Bool running = True, nextfocus, doinitspawn = True,
             fillagain = False, closelastclient = False,
-            killclientsfirst = False;
+			killclientsfirst = False, basenametitles = False;
 static Display *dpy;
 static DC dc;
 static Atom wmatom[WMLast];
@@ -379,7 +381,10 @@ drawbar(void)
 		} else {
 			col = clients[c]->urgent ? dc.urg : dc.norm;
 		}
-		drawtext(clients[c]->name, col);
+		if (basenametitles)
+			drawtext(clients[c]->basename, col);
+		else
+			drawtext(clients[c]->name, col);
 		dc.x += dc.w;
 		clients[c]->tabx = dc.x;
 	}
@@ -579,6 +584,16 @@ getatom(int a)
 	XFree(p);
 
 	return buf;
+}
+
+char *
+getbasename(const char *name)
+{
+	char *pos = strrchr(name, '/');
+	if (pos)
+		return pos+1;
+	else
+		return (char *)name;
 }
 
 int
@@ -1289,6 +1304,8 @@ updatetitle(int c)
 	    sizeof(clients[c]->name)))
 		gettextprop(clients[c]->win, XA_WM_NAME, clients[c]->name,
 		            sizeof(clients[c]->name));
+	if (basenametitles)
+		clients[c]->basename = getbasename(clients[c]->name);
 	if (sel == c)
 		xsettitle(win, clients[c]->name);
 	drawbar();
@@ -1404,6 +1421,9 @@ main(int argc, char *argv[])
 		break;
 	case 'u':
 		urgbgcolor = EARGF(usage());
+		break;
+	case 'b':
+		basenametitles = True;
 		break;
 	case 'v':
 		die("tabbed-"VERSION", © 2009-2016 tabbed engineers, "
