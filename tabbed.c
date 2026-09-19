@@ -214,7 +214,7 @@ cleanup(void)
 {
 	int i;
 
-	for (i = nclients - 1; i >= 0; i--) {
+	for (i = 0; i < nclients; i++) {
 		focus(i);
 		killclient(NULL);
 		XReparentWindow(dpy, clients[i]->win, root, 0, 0);
