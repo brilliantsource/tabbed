@@ -41,21 +41,21 @@ static int npisrelative  = 0;
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-	{ "tabbed.font",         STRING,  &font},
-	{ "tabbed.normbgcolor",  STRING,  &normbgcolor},
-	{ "tabbed.normfgcolor",  STRING,  &normfgcolor},
-	{ "tabbed.selbgcolor",   STRING,  &selbgcolor},
-	{ "tabbed.selfgcolor",   STRING,  &selfgcolor},
-	{ "tabbed.urgbgcolor",   STRING,  &urgbgcolor},
-	{ "tabbed.urgfgcolor",   STRING,  &urgfgcolor},
-	{ "tabbed.before",       STRING,  &before},
-	{ "tabbed.after",        STRING,  &after},
-	{ "tabbed.titletrim",    STRING,  &titletrim},
-	{ "tabbed.tabwidth",     INTEGER, &tabwidth},
-	{ "tabbed.focusnew",     INTEGER, &focusnew},
-	{ "tabbed.urgentswitch", INTEGER, &urgentswitch},
-	{ "tabbed.newposition",  INTEGER, &newposition},
-	{ "tabbed.npisrelative", INTEGER, &npisrelative},
+	{ "tabbed.font",                STRING,  &font},
+	{ "tabbed.background",          STRING,  &normbgcolor},
+	{ "tabbed.foreground",          STRING,  &normfgcolor},
+	{ "tabbed.backgroundSelection", STRING,  &selbgcolor},
+	{ "tabbed.foregroundSelection", STRING,  &selfgcolor},
+	{ "tabbed.backgroundUrgent",    STRING,  &urgbgcolor},
+	{ "tabbed.foregroundUrgent",    STRING,  &urgfgcolor},
+	{ "tabbed.before",              STRING,  &before},
+	{ "tabbed.after",               STRING,  &after},
+	{ "tabbed.titleTrim",           STRING,  &titletrim},
+	{ "tabbed.tabWidth",            INTEGER, &tabwidth},
+	{ "tabbed.focusNew",            INTEGER, &focusnew},
+	{ "tabbed.urgentSwitch",        INTEGER, &urgentswitch},
+	{ "tabbed.newPosition",         INTEGER, &newposition},
+	{ "tabbed.npisRelative",        INTEGER, &npisrelative},
 };
 
 #define MODKEY ControlMask
