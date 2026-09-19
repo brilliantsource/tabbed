@@ -8,10 +8,10 @@ static const char* selbgcolor   = "#555555";
 static const char* selfgcolor   = "#ffffff";
 static const char* urgbgcolor   = "#111111";
 static const char* urgfgcolor   = "#cc0000";
-static const char before[]      = "<";
-static const char after[]       = ">";
-static const char titletrim[]   = "...";
-static const int  tabwidth      = 200;
+static       char before[]      = "<";
+static       char after[]       = ">";
+static       char titletrim[]   = "...";
+static       int  tabwidth      = 200;
 static const Bool foreground    = True;
 static       Bool focusnew      = True;
 static       Bool urgentswitch  = False;
@@ -41,21 +41,21 @@ static int npisrelative  = 0;
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-	{ "font",         STRING,  &font},
-	{ "normbgcolor",  STRING,  &normbgcolor},
-	{ "normfgcolor",  STRING,  &normfgcolor},
-	{ "selbgcolor",   STRING,  &selbgcolor},
-	{ "selfgcolor",   STRING,  &selfgcolor},
-	{ "urgbgcolor",   STRING,  &urgbgcolor},
-	{ "urgfgcolor",   STRING,  &urgfgcolor},
-	{ "before",       STRING,  &before},
-	{ "after",        STRING,  &after},
-	{ "titletrim",    STRING,  &titletrim},
-	{ "tabwidth",     INTEGER, &tabwidth},
-	{ "focusnew",     INTEGER, &focusnew},
-	{ "urgentswitch", INTEGER, &urgentswitch},
-	{ "newposition",  INTEGER, &newposition},
-	{ "npisrelative", INTEGER, &npisrelative},
+	{ "tabbed.font",         STRING,  &font},
+	{ "tabbed.normbgcolor",  STRING,  &normbgcolor},
+	{ "tabbed.normfgcolor",  STRING,  &normfgcolor},
+	{ "tabbed.selbgcolor",   STRING,  &selbgcolor},
+	{ "tabbed.selfgcolor",   STRING,  &selfgcolor},
+	{ "tabbed.urgbgcolor",   STRING,  &urgbgcolor},
+	{ "tabbed.urgfgcolor",   STRING,  &urgfgcolor},
+	{ "tabbed.before",       STRING,  &before},
+	{ "tabbed.after",        STRING,  &after},
+	{ "tabbed.titletrim",    STRING,  &titletrim},
+	{ "tabbed.tabwidth",     INTEGER, &tabwidth},
+	{ "tabbed.focusnew",     INTEGER, &focusnew},
+	{ "tabbed.urgentswitch", INTEGER, &urgentswitch},
+	{ "tabbed.newposition",  INTEGER, &newposition},
+	{ "tabbed.npisrelative", INTEGER, &npisrelative},
 };
 
 #define MODKEY ControlMask

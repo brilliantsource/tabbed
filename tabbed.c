@@ -60,7 +60,6 @@
 	XRESOURCE_LOAD_META(NAME)		\
 	DST = ret.addr;
 
-
 enum { ColFG, ColBG, ColLast };       /* color */
 enum { WMProtocols, WMDelete, WMName, WMState, WMFullscreen,
        XEmbed, WMSelectTab, WMLast }; /* default atoms */
@@ -207,7 +206,6 @@ static char **cmd;
 static char *wmname = "tabbed";
 static pid_t nextpid;
 static const char *geometry;
-
 static Colormap cmap;
 static Visual *visual = NULL;
 
