@@ -414,6 +414,7 @@ drawbar(void)
 	XftColor *col;
 	int c, cc, fc, width, nbh, i;
 	char *name = NULL;
+	char tabtitle[256];
 
 	if (nclients == 0) {
 		dc.x = 0;
@@ -464,10 +465,15 @@ drawbar(void)
 		} else {
 			col = clients[c]->urgent ? dc.urg : dc.norm;
 		}
-		if (basenametitles)
-			drawtext(clients[c]->basename, col);
-		else
-			drawtext(clients[c]->name, col);
+		if (basenametitles) {
+		    snprintf(tabtitle, sizeof(tabtitle), "%d: %s",
+		             c + 1, clients[c]->basename);
+		    drawtext(tabtitle, col);
+    } else {
+		    snprintf(tabtitle, sizeof(tabtitle), "%d: %s",
+		             c + 1, clients[c]->name);
+		    drawtext(tabtitle, col);
+    }
 		dc.x += dc.w;
 		clients[c]->tabx = dc.x;
 	}
