@@ -13,6 +13,7 @@ static const char after[]       = ">";
 static const char titletrim[]   = "...";
 static const int  tabwidth      = 200;
 static const Bool foreground    = True;
+static       Bool focusnew      = True;
 static       Bool urgentswitch  = False;
 static const int  separator     = 4;
 
@@ -23,8 +24,8 @@ static const int barHeight = 24;
  * then the current position is changed + newposition. If npisrelative
  * is False, then newposition is an absolute position.
  */
-static int  newposition   = 0;
-static Bool npisrelative  = False;
+static int newposition   = 0;
+static int npisrelative  = 0;
 
 #define SETPROP(p) { \
         .v = (char *[]){ "/bin/sh", "-c", \
@@ -35,6 +36,27 @@ static Bool npisrelative  = False;
                 p, winid, NULL \
         } \
 }
+
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+	{ "font",         STRING,  &font},
+	{ "normbgcolor",  STRING,  &normbgcolor},
+	{ "normfgcolor",  STRING,  &normfgcolor},
+	{ "selbgcolor",   STRING,  &selbgcolor},
+	{ "selfgcolor",   STRING,  &selfgcolor},
+	{ "urgbgcolor",   STRING,  &urgbgcolor},
+	{ "urgfgcolor",   STRING,  &urgfgcolor},
+	{ "before",       STRING,  &before},
+	{ "after",        STRING,  &after},
+	{ "titletrim",    STRING,  &titletrim},
+	{ "tabwidth",     INTEGER, &tabwidth},
+	{ "focusnew",     INTEGER, &focusnew},
+	{ "urgentswitch", INTEGER, &urgentswitch},
+	{ "newposition",  INTEGER, &newposition},
+	{ "npisrelative", INTEGER, &npisrelative},
+};
 
 #define MODKEY ControlMask
 static const Key keys[] = {
