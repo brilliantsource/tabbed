@@ -14,6 +14,7 @@ static const char titletrim[]   = "...";
 static const int  tabwidth      = 200;
 static const Bool foreground    = True;
 static       Bool urgentswitch  = False;
+static const int  separator     = 4;
 
 static const int barHeight = 24;
 
