@@ -12,6 +12,7 @@ static char* before      = "<";
 static char* after       = ">";
 static char* titletrim   = "...";
 static char* geometry    = "800x600+0+0";
+static Bool  isFixed     = False;
 static int  tabwidth     = 200;
 static Bool focusnew     = True;
 static Bool urgentswitch = False;
@@ -58,6 +59,7 @@ ResourcePref resources[] = {
     { "tabbed.newPosition",         INTEGER, &newposition  },
     { "tabbed.npisRelative",        INTEGER, &npisrelative },
     { "tabbed.geometry",            STRING,  &geometry     },
+    { "tabbed.geometryFixed",       INTEGER, &isFixed      },
 };
 
 #define MODKEY ControlMask
