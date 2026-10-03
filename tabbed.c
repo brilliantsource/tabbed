@@ -205,7 +205,6 @@ static char winid[64];
 static char **cmd;
 static char *wmname = "tabbed";
 static pid_t nextpid;
-static const char *geometry;
 static Colormap cmap;
 static Visual *visual = NULL;
 
