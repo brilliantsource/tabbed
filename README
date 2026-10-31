@@ -16,6 +16,22 @@ Afterwards enter the following command to build and install tabbed
 
     make clean install
 
+Patches applied
+---------------
+The following patches from https://tools.suckless.org/tabbed/ have been applied:
+  - tabbed-alpha-0.9.diff
+  - tabbed-autohide-20201222-dabf6a2.diff
+  - tabbed-bar-height-0.6.diff
+  - tabbed-basenames-0.7.diff
+  - tabbed-cwd-0.9.diff
+  - tabbed-drag-20230128-41e2b8f.diff
+  - tabbed-move-clamped-20200404-e2ca5f9.diff
+  - tabbed-separator-20230128-41e2b8f.diff
+  - tabbed-ungrabkey-0.8.diff
+  - tabbed-clientnumber-20160702-bc23614.diff
+  - tabbed-clientnumber-20160702-bc23614.diff
+  - tabbed-xresources-signal-reloading-20220622-014eabf.diff
+
 Running tabbed
 --------------
 See the man page for details.
